@@ -1,11 +1,10 @@
 using Xunit;
+using static Assignment1.RegExpr;
 
 namespace Assignment1.Tests
 {
     public class RegExprTests
     {
-<<<<<<< Updated upstream
-=======
         [Fact]
         public void TestName()
         {
@@ -16,6 +15,5 @@ namespace Assignment1.Tests
         //Then
             Assert.Equal(new string[]{"cover","4274", "image","and","related","trade,","dress","2323","are","trademarks"},output);
         }
->>>>>>> Stashed changes
     }
 }
