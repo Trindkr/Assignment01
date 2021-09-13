@@ -1,4 +1,6 @@
 using Xunit;
+using System.Collections.Generic;
+using System;
 using static Assignment1.Iterators;
 
 namespace Assignment1.Tests
@@ -20,19 +22,20 @@ namespace Assignment1.Tests
             Assert.Equal(new int[]{1,2,3,4,5,6,6,5,4,3,2,1},output);
         }
 
-        /*[Fact]
+        [Fact]
         public void TestName()
         {
             //Given
+            Predicate<int> predicate = Iterators.Even;
             var input = new int[]{3,4,5,6,2,8,6};
             
             //When
-            var output = Filter<int>(input,Iterators.even(2));
+            var output = Filter<int>(input,predicate);
             
             //Then
             Assert.Equal(new int[]{4,6,2,8,6}, output);
         }
-        */
+        
         
     }
 }
