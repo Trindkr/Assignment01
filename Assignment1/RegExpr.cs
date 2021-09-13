@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Linq;
 using static System.Collections.IEnumerable;
 
+
 namespace Assignment1
 {
     public static class RegExpr
@@ -19,8 +20,6 @@ namespace Assignment1
                 {
                     yield return item2;
                 }
-
-                
                 temp = null;
             }
 
@@ -30,28 +29,25 @@ namespace Assignment1
         {
             foreach (string item in resolutions)
             {
-                string[] temp = Regex.Split(item, @"[,]");
-
-                foreach  (string item2 in temp)
+                string[] temp = Regex.Split(item, @"[,]");foreach  (string item2 in temp)
                 {
                     string[] temp2 = Regex.Split(item2, @"[x]");
                     
                     int width = Convert.ToInt32( temp2[0]);
-                    int height = Convert.ToInt32( temp2[1]);
-
-                    
+                    int height = Convert.ToInt32( temp2[1]);    
                     yield return (width, height);
                 
                 }
-
-                
                 temp = null;
             }
         }
 
         public static IEnumerable<string> InnerText(string html, string tag)
-        {
-            throw new NotImplementedException();
+        {            
+               foreach (Match match in Regex.Matches(html,@$"<{tag}( .+?)?>(?<Text>.+?)<\/{tag}>" ))
+               {
+                   yield return Regex.Replace(match.Groups["Text"].Value, @"<[^>]*>","");
+               }
         }
     }
 }
