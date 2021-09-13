@@ -28,41 +28,36 @@ namespace Assignment1.Tests
         var output = Resolution(input);
         //Then
         var tupleList = new List<(int i,int j)>
-        {
-             (1920,1080),
-             (1024,768),
-             (800,600),
-             (640, 480),
-             (320, 200),
-             (320, 240),
-             (800, 600),
-             (1280, 960)
-        };
+          {
+               (1920,1080),
+               (1024,768),
+               (800,600),
+               (640, 480),
+               (320, 200),
+               (320, 240),
+               (800, 600),
+               (1280, 960)
+          };
 
             Assert.Equal(tupleList, output);        
         }
 
 
         
-    [Fact]
-    public void TestName()
-    {
-    //Given
-    string input = @"<div>  <p>A <b>regular expression</b>, <b>regex</b> or <b>regexp</b> (sometimes called a <b>rational expression</b>) is, in <a href=""/wiki/Theoretical_computer_science"" title=""Theoretical computer science"">theoretical computer science</a> and <a href=""/wiki/Formallanguage"" title=""Formal language"">formal language</a> theory, a sequence of <a href=""/wiki/Character(computing)"" title=""Character (computing)"">characters</a> that define a <i>search <a href=""/wiki/Pattern_matching"" title=""Pattern matching"">pattern</a></i>. Usually this pattern is then used by <a href=""/wiki/String_searchingalgorithm"" title=""String searching algorithm"">string searching algorithms</a> for ""find"" or ""find and replace"" operations on <a href=""/wiki/String(computer_science)"" title=""String (computer science)"">strings</a>.</p> </div>";
-   
-    string tag="a";
-    
-    //When
-    var output = InnerText(input,tag);
+        [Fact]
+        public void innerText_Given_htmlStringInput_Returns_textWithoutTags()
+        {
+        //Given
+        string input = @"<div>  <p>A <b>regular expression</b>, <b>regex</b> or <b>regexp</b> (sometimes called a <b>rational expression</b>) is, in <a href=""/wiki/Theoretical_computer_science"" title=""Theoretical computer science"">theoretical computer science</a> and <a href=""/wiki/Formallanguage"" title=""Formal language"">formal language</a> theory, a sequence of <a href=""/wiki/Character(computing)"" title=""Character (computing)"">characters</a> that define a <i>search <a href=""/wiki/Pattern_matching"" title=""Pattern matching"">pattern</a></i>. Usually this pattern is then used by <a href=""/wiki/String_searchingalgorithm"" title=""String searching algorithm"">string searching algorithms</a> for ""find"" or ""find and replace"" operations on <a href=""/wiki/String(computer_science)"" title=""String (computer science)"">strings</a>.</p> </div>";
 
-    //Then
-    Assert.Equal( new string[]{"theoretical computer science","formal language","characters","pattern","string searching algorithms","strings"},output);
-    
+        string tag="a";
+
+        //When
+        var output = InnerText(input,tag);
+
+        //Then
+        Assert.Equal( new string[]{"theoretical computer science","formal language","characters","pattern","string searching algorithms","strings"},output);
+
+        }
     }
-    }
-
-
-
-    
-    
 }
